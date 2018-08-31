@@ -9,7 +9,8 @@ p = inflect.engine()
 
 def parse_folder(directory):
     for filename in os.listdir(directory):
-        yield os.path.join(directory, filename)
+        if filename.endswith(".vtt"):
+            yield os.path.join(directory, filename)
 
 def parse_vtt(directory):
     for filename in parse_folder(directory):
